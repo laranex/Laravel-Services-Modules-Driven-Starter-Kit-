@@ -23,6 +23,11 @@ class JsonResponder
         return self::respond($message, 401);
     }
 
+    public static function forbidden($message = 'Forbidden'): \Illuminate\Http\JsonResponse
+    {
+        return self::respond($message, 403);
+    }
+
     public static function validationError($message, $data)
     {
         return self::respond($message, 422, $data);
@@ -38,7 +43,7 @@ class JsonResponder
         return self::respond($message, 404);
     }
 
-    public static function methodNotAllowed($message = 'The current method not allow for this route')
+    public static function methodNotAllowed($message = "The current method not allow for this route")
     {
         return self::respond($message, 405);
     }

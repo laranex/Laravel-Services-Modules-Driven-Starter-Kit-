@@ -19,12 +19,7 @@ class SuperAdminSeeder extends Seeder
         $this->command->warn('  Creating and super-admin account');
         $user = User::updateOrCreate(['email' => 'superadmin@onenex.co'], ['name' => 'Super Admin', 'password' => 'password']);
 
-        $this->command->warn('  Assigning all permission to super-admin role');
-        $roleName = 'super-admin';
-        $role = Role::whereName($roleName)->firstOrFail();
-        $role->syncPermissions(Permission::all());
-
         $this->command->warn('  Attaching super-admin role to created user');
-        $user->syncRoles([$roleName]);
+        $user->syncRoles([RoleEnum::SUPER_ADMIN->value]);
     }
 }
