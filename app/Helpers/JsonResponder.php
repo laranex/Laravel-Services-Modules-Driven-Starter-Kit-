@@ -2,28 +2,29 @@
 
 namespace App\Helpers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Response;
 
 class JsonResponder
 {
-    public static function respond($message, $status, $data = []): \Illuminate\Http\JsonResponse
+    public static function respond($message, $status, $data = []): JsonResponse
     {
         $responseBody = collect(['message' => $message, 'data' => $data]);
 
         return Response::json($responseBody, $status);
     }
 
-    public static function success($message = 'Success', $data = []): \Illuminate\Http\JsonResponse
+    public static function success($message = 'Success', $data = []): JsonResponse
     {
         return self::respond($message, 200, $data);
     }
 
-    public static function unauthorized($message = 'Unauthorized'): \Illuminate\Http\JsonResponse
+    public static function unauthorized($message = 'Unauthorized'): JsonResponse
     {
         return self::respond($message, 401);
     }
 
-    public static function forbidden($message = 'Forbidden'): \Illuminate\Http\JsonResponse
+    public static function forbidden($message = 'Forbidden'): JsonResponse
     {
         return self::respond($message, 403);
     }
@@ -33,7 +34,7 @@ class JsonResponder
         return self::respond($message, 422, $data);
     }
 
-    public static function internalServerError($message = 'Internal Server Error', $data = []): \Illuminate\Http\JsonResponse
+    public static function internalServerError($message = 'Internal Server Error', $data = []): JsonResponse
     {
         return self::respond($message, 500, $data);
     }
