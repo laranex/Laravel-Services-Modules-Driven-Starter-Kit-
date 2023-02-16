@@ -8,7 +8,7 @@ class JsonResponder
 {
     public static function respond($message, $status, $data = []): \Illuminate\Http\JsonResponse
     {
-        $responseBody = collect(['message' => $message, 'data' => $data])->filter();
+        $responseBody = collect(['message' => $message, 'data' => $data]);
 
         return Response::json($responseBody, $status);
     }
