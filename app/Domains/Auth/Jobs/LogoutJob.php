@@ -9,8 +9,6 @@ class LogoutJob extends Job
 {
     /**
      * Execute the job.
-     *
-     * @return
      */
     public function handle()
     {
