@@ -19,6 +19,11 @@ class JsonResponder
         return self::respond($message, 200, $data);
     }
 
+    public static function unauthenticated($message = 'Unauthenticated'): JsonResponse
+    {
+        return self::respond($message, 401);
+    }
+
     public static function unauthorized($message = 'Unauthorized'): JsonResponse
     {
         return self::respond($message, 401);
@@ -29,7 +34,7 @@ class JsonResponder
         return self::respond($message, 403);
     }
 
-    public static function validationError($message, $data)
+    public static function validationError($message, $data): JsonResponse
     {
         return self::respond($message, 422, $data);
     }
@@ -39,18 +44,23 @@ class JsonResponder
         return self::respond($message, 500, $data);
     }
 
-    public static function notFound($message = 'Not Found')
+    public static function notFound($message = 'Not Found'): JsonResponse
     {
         return self::respond($message, 404);
     }
 
-    public static function methodNotAllowed($message = "The current method not allow for this route")
+    public static function methodNotAllowed($message = 'The current method not allow for this route'): JsonResponse
     {
         return self::respond($message, 405);
     }
 
-    public static function noContent($message = 'No Content')
+    public static function noContent($message = 'No Content'): JsonResponse
     {
         return self::respond($message, 204);
+    }
+
+    public static function tooManyAttempts(): JsonResponse
+    {
+        return self::respond('Too many attempts, try again later', 429);
     }
 }

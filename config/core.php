@@ -1,5 +1,9 @@
 <?php
 
+use App\Enums\PermissionEnum;
+use App\Enums\RoleEnum;
+use App\Helpers\Enum;
+
 return [
 
     /**
@@ -31,19 +35,6 @@ return [
 
     ],
 
-    'roles' => [
-        'super-admin',
-    ],
-
-    // format - action-resource(s/es)
-    // index-application-services (for reading the list of application services)
-    // show-application-service (for reading the single application service)
-    'permissions' => [
-        'index-application-services',
-        'show-application-service',
-        'update-application-service',
-
-        'manage-roles',
-        'manage-permissions',
-    ],
+    'roles' => Enum::make(RoleEnum::class)->values(),
+    'permissions' => Enum::make(PermissionEnum::class)->values(),
 ];

@@ -7,6 +7,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Exceptions\UnauthorizedException as PermissionAuthorizedException;
@@ -76,23 +77,26 @@ class Handler extends ExceptionHandler
                 return JsonResponder::notFound('The resource is not found');
 
             case UnauthorizedException::class:
-                return JsonResponder::unauthorized("Wrong Credentials");
+                return JsonResponder::unauthenticated('Wrong Credentials');
+
+            case AuthenticationException::class:
+                return JsonResponder::unauthenticated();
 
             case PermissionAuthorizedException::class:
-                if ($message === "User is not logged in.") {
-                    return JsonResponder::unauthorized();
+                if ($message === 'User is not logged in.') {
+                    return JsonResponder::unauthenticated();
                 }
 
-                return JsonResponder::forbidden("User does not have the right permissions");
+                return JsonResponder::forbidden('User does not have the right permissions');
 
             case AuthorizationException::class:
-                return JsonResponder::forbidden("User does not have the right permissions");
+                return JsonResponder::unauthorized($message);
 
             case ValidationException::class:
                 return JsonResponder::validationError('Validation Failed', $exception->errors());
 
-            case AuthenticationException::class:
-                return JsonResponder::unauthorized('Unauthenticated');
+            case  ThrottleRequestsException::class:
+                return JsonResponder::tooManyAttempts();
 
             default:
                 info($exception);

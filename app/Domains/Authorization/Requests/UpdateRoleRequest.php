@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Auth\Requests;
+namespace App\Domains\Authorization\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'string|email|required',
-            'password' => 'string|required',
+            'name' => 'string|min:3|unique:roles,name,'.request()->id,
+            'permission_ids' => 'required|array',
+            'permission_ids.*' => 'exists:permissions,id',
         ];
     }
 }
