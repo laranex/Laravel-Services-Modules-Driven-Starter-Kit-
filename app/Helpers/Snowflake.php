@@ -88,8 +88,6 @@ class Snowflake
 
     /**
      * Generate the 64bit unique id.
-     *
-     * @return int
      */
     public function id(): int
     {
@@ -106,8 +104,6 @@ class Snowflake
 
     /**
      * Generate the 64bit unique id.
-     *
-     * @return int
      */
     public function next(): int
     {
@@ -117,8 +113,6 @@ class Snowflake
     /**
      * Create 53bit Id.
      * timestamp_bits(41) + sequence_bits(12)
-     *
-     * @return int
      */
     public function short(): int
     {
@@ -152,8 +146,6 @@ class Snowflake
 
     /**
      * Return the now unixtime.
-     *
-     * @return int
      */
     public function timestamp(): int
     {

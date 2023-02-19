@@ -10,7 +10,6 @@ class WebBasicAuthMiddleware
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
      * @return mixed
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException

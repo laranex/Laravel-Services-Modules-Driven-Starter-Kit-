@@ -27,7 +27,6 @@ class UpdateRoleJob extends Job
     /**
      * Execute the job.
      *
-     * @return Role
      *
      * @throws Exception
      */

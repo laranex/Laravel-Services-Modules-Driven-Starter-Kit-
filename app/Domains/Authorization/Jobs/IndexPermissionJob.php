@@ -10,8 +10,6 @@ class IndexPermissionJob extends Job
 {
     /**
      * Execute the job.
-     *
-     * @return
      */
     public function handle(Request $request)
     {

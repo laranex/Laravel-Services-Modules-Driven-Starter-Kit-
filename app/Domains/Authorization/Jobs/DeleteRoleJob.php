@@ -22,7 +22,6 @@ class DeleteRoleJob extends Job
     /**
      * Execute the job.
      *
-     * @return bool
      *
      * @throws \Exception
      */

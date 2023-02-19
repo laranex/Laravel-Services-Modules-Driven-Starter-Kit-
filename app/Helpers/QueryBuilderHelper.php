@@ -9,8 +9,6 @@ use Illuminate\Support\Arr;
 class QueryBuilderHelper
 {
     /**
-     * @param  Builder  $builder
-     * @param $order
      * @param $sortableFields array
      * @return mixed
      * accepted format for $sortableFields are as follows
@@ -45,7 +43,6 @@ class QueryBuilderHelper
     }
 
     /**
-     * @param  Builder  $builder
      * @param $searchableFields array
      * @param $keyword string
      * @return mixed
@@ -67,7 +64,6 @@ class QueryBuilderHelper
     }
 
     /**
-     * @param  Builder  $builder
      * @param  int|null  $perPage integer The number of result for a page
      * @param  int|null  $page integer Page number for a pagination
      * @return mixed

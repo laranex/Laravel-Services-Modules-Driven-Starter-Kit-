@@ -10,8 +10,6 @@ class LogoutOfAllSessionsJob extends Job
 {
     /**
      * Execute the job.
-     *
-     * @return bool
      */
     public function handle(): bool
     {

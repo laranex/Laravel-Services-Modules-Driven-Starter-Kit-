@@ -59,6 +59,7 @@ class RoleController extends Controller
      * @group Permissions & Roles
      *
      * @urlParam id integer required ID of the Role
+     *
      * @bodyParam name string required name of the Role
      * @bodyParam permission_ids array required Ids of the permissions
      */
