@@ -37,6 +37,7 @@ class ApplicationServiceController extends Controller
      * @group ApplicationService
      *
      * @urlParam id integer required The id of the Application Service.
+     *
      * @bodyParam active boolean optional The active status of the Application Service.
      * @bodyParam description string optional The description of the Application Service.
      */

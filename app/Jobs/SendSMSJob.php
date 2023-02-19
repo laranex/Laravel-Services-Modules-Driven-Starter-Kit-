@@ -18,7 +18,7 @@ class SendSMSJob implements ShouldQueue
 
     public string $message;
 
-    public string | null $sender;
+    public string|null $sender;
 
     /**
      * Create a new job instance.

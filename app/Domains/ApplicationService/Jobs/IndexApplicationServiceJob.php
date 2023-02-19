@@ -11,8 +11,6 @@ class IndexApplicationServiceJob extends Job
 {
     /**
      * Execute the job.
-     *
-     * @return Collection|_IH_ApplicationService_C|array
      */
     public function handle(): Collection|_IH_ApplicationService_C|array
     {

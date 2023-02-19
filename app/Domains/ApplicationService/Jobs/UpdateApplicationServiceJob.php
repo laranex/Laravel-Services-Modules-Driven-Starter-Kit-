@@ -25,8 +25,6 @@ class UpdateApplicationServiceJob extends Job
 
     /**
      * Execute the job.
-     *
-     * @return bool
      */
     public function handle(): bool
     {
