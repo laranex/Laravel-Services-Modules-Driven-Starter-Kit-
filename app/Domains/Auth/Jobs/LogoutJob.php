@@ -2,6 +2,7 @@
 
 namespace App\Domains\Auth\Jobs;
 
+use Illuminate\Support\Facades\Auth;
 use Lucid\Units\Job;
 
 class LogoutJob extends Job
@@ -9,10 +10,10 @@ class LogoutJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return
      */
     public function handle()
     {
-        return \Auth::user()->token()->revoke();
+        return Auth::user()->token()->revoke();
     }
 }
