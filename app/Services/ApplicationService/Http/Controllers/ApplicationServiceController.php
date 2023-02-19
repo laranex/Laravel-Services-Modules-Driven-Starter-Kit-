@@ -10,7 +10,7 @@ use Lucid\Units\Controller;
 class ApplicationServiceController extends Controller
 {
     /**
-     * Get Application Services
+     * Index Application Services
      *
      * @group ApplicationService
      */
@@ -24,11 +24,11 @@ class ApplicationServiceController extends Controller
      *
      * @group ApplicationService
      *
-     * @urlParam id required The id of the Application Service.
+     * @urlParam id integer required The id of the Application Service.
      */
-    public function show($applicationServiceId)
+    public function show()
     {
-        return $this->serve(ShowApplicationServiceFeature::class, ['applicationServiceId' => $applicationServiceId]);
+        return $this->serve(ShowApplicationServiceFeature::class);
     }
 
     /**
@@ -36,12 +36,12 @@ class ApplicationServiceController extends Controller
      *
      * @group ApplicationService
      *
-     * @urlParam id string required The id of the Application Service.
+     * @urlParam id integer required The id of the Application Service.
      * @bodyParam active boolean optional The active status of the Application Service.
      * @bodyParam description string optional The description of the Application Service.
      */
-    public function update($applicationServiceId)
+    public function update()
     {
-        return $this->serve(UpdateApplicationServiceFeature::class, ['applicationServiceId' => $applicationServiceId]);
+        return $this->serve(UpdateApplicationServiceFeature::class);
     }
 }

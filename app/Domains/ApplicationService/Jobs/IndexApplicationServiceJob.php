@@ -3,26 +3,18 @@
 namespace App\Domains\ApplicationService\Jobs;
 
 use App\Data\Models\ApplicationService;
+use Illuminate\Database\Eloquent\Collection;
+use LaravelIdea\Helper\App\Data\Models\_IH_ApplicationService_C;
 use Lucid\Units\Job;
 
 class IndexApplicationServiceJob extends Job
 {
     /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Execute the job.
      *
-     * @return ApplicationService[]|\Illuminate\Database\Eloquent\Collection|\LaravelIdea\Helper\App\Data\Models\_IH_ApplicationService_C
+     * @return Collection|_IH_ApplicationService_C|array
      */
-    public function handle()
+    public function handle(): Collection|_IH_ApplicationService_C|array
     {
         return ApplicationService::all()->sortByDesc('active');
     }

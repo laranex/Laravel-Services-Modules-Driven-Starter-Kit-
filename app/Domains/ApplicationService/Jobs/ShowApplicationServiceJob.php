@@ -7,14 +7,14 @@ use Lucid\Units\Job;
 
 class ShowApplicationServiceJob extends Job
 {
-    private string $applicationServiceId;
+    private int $applicationServiceId;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($applicationServiceId)
+    public function __construct(int $applicationServiceId)
     {
         $this->applicationServiceId = $applicationServiceId;
     }

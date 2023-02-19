@@ -4,20 +4,14 @@ namespace App\Services\ApplicationService\Features;
 
 use App\Domains\ApplicationService\Jobs\ShowApplicationServiceJob;
 use App\Helpers\JsonResponder;
+use Illuminate\Http\Request;
 use Lucid\Units\Feature;
 
 class ShowApplicationServiceFeature extends Feature
 {
-    private string $applicationServiceId;
-
-    public function __construct($applicationServiceId)
+    public function handle(Request $request): \Illuminate\Http\JsonResponse
     {
-        $this->applicationServiceId = $applicationServiceId;
-    }
-
-    public function handle()
-    {
-        $applicationService = $this->run(ShowApplicationServiceJob::class, ['applicationServiceId' => $this->applicationServiceId]);
+        $applicationService = $this->run(new ShowApplicationServiceJob($request->id));
 
         return JsonResponder::success('Application Service has been retrieved successfully', $applicationService);
     }

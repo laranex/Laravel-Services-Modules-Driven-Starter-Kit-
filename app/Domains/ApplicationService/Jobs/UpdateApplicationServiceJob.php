@@ -8,7 +8,7 @@ use Lucid\Units\Job;
 
 class UpdateApplicationServiceJob extends Job
 {
-    private string $applicationServiceId;
+    private int $applicationServiceId;
 
     private array $payload;
 
@@ -17,7 +17,7 @@ class UpdateApplicationServiceJob extends Job
      *
      * @return void
      */
-    public function __construct($applicationServiceId, $payload)
+    public function __construct(int $applicationServiceId, array $payload)
     {
         $this->applicationServiceId = $applicationServiceId;
         $this->payload = $payload;
@@ -28,7 +28,7 @@ class UpdateApplicationServiceJob extends Job
      *
      * @return bool
      */
-    public function handle()
+    public function handle(): bool
     {
         $applicationService = ApplicationService::findOrFail($this->applicationServiceId);
         if ($applicationService->force_required && $this->payload['active'] == 0) {
@@ -37,5 +37,7 @@ class UpdateApplicationServiceJob extends Job
             ]);
         }
         $applicationService->update($this->payload);
+
+        return $applicationService;
     }
 }
