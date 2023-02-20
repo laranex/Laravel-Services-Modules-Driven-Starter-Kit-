@@ -5,5 +5,12 @@
         "build": "vite build"
     },
     "devDependencies": {},
-    "dependencies": {}
+    "dependencies": {
+        "husky": "^8.0.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "php artisan inspire"
+        }
+    }
 }
