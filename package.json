@@ -4,10 +4,11 @@
         "dev": "vite",
         "build": "vite build"
     },
-    "devDependencies": {},
-    "dependencies": {
-        "husky": "^8.0.3"
+    "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^13.1.2"
     },
+    "dependencies": {},
     "husky": {
         "hooks": {
             "pre-commit": "./vendor/bin/pint"
