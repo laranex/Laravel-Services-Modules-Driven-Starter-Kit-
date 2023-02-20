@@ -21,6 +21,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+
         return $this->serve(LoginFeature::class);
     }
 

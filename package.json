@@ -10,7 +10,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "php artisan inspire "
+            "pre-commit": "./vendor/bin/pint"
         }
     }
 }
