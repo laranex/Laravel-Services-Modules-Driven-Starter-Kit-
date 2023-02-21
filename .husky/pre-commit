@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pint
+echo "Running pint automatically"
+./vendor/bin/pint
