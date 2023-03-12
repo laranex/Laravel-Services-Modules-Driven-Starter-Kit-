@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    use HasFactory, AttachableTrait, SnowflakeID;
+    use AttachableTrait, SnowflakeID;
 
     protected $fillable = [
         'file_name',
@@ -39,6 +39,8 @@ class File extends Model
     /**
      * Problem - Imagine we are fetching list of users with the appended values (profile_picture) which trigger a sql call to each user, the workload on database will be too much, and it's not worth.
      * To avoid this problem, we can simply use the following helper function
+     *
+     * Remove your appends to file model in your model firstly,
      *
      * $users = User::leftJoin("files", function (Illuminate\Database\Query\JoinClause $query) {
      *       $query->on("users.id", "files.attachable_id")->where("files.field", "profile_picture");
