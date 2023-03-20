@@ -4,7 +4,6 @@ namespace App\Data\Models;
 
 use App\Traits\Attachable as AttachableTrait;
 use App\Traits\SnowflakeID;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
