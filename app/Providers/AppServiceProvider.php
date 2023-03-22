@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerLucidApplicationProviders();
+        $this->registerAppHealthServiceProvider();
         $this->configurePassport();
         $this->configureDevelopmentPackages();
 
@@ -44,6 +45,13 @@ class AppServiceProvider extends ServiceProvider
                 ->filter(fn ($provider) => $provider['active'])
                 ->map(fn ($provider) => $provider['provider'])
                 ->each(fn ($provider) => $this->app->register($provider));
+        }
+    }
+    
+    private function registerAppHealthServiceProvider()
+    {
+        if(config('health.enabled')){
+            $this->app->register(\App\Services\AppHealthService\Providers\AppHealthServiceServiceProvider::class);
         }
     }
 

@@ -15,6 +15,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        if(config('health.enabled')){
+            $schedule->command(\Spatie\Health\Commands\RunHealthChecksCommand::class)->everyMinute();
+        }
     }
 
     /**
