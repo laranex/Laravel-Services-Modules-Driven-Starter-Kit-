@@ -6,10 +6,29 @@ This stater kit is based on lucid architecture (**[monolith](https://docs.lucida
 - **[Laravel Framework](https://laravel.com/)**
 - **[Lucid Architecture](https://lucidarch.dev/)**
 
+### Installed Third-party packages
+- laranex/lucid
+- laravel/horizon
+- laravel/passport
+- predis/predis
+- spatie/laravel-permission
+- spatie/laravel-query-builder
+- spatie/laravel-health
+
+### Installed Third-party packages (dev)
+- barryvdh/laravel-ide-helper
+- knuckleswtf/scribe
+- laravel/pint
+- laravel/telescope
+- nunomaduro/collision
+- nunomaduro/phpinsight
+- phpstan/phpstan
+
+
 ### REQUIREMENTS
 - **[PHP](https://www.php.net/)** > 8.1
 
-### INSTALLATION
+### INSTALLATION via github
 ```shell
 git clone https://github.com/onenextech/Laravel-Lucid-Architecutre-Stater-Kit.git 
 cd Laravel-Lucid-Architecutre-Stater-Kit
@@ -23,6 +42,9 @@ php artisan db:seed --class=ApplicationServiceSeeder
 
 php artisan passport:install
 ```
+
+### Installation via cli
+Please refer to this package - https://packagist.org/packages/laranex/installer
 
 
 Add the following line to your shell profile (~/.bash_profile, ~/.bashrc, ~/.zshrc), lucid & pint command will be usable in your application.
