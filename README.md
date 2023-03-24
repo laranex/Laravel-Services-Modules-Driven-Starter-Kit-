@@ -30,7 +30,7 @@ This stater kit is based on lucid architecture (**[monolith](https://docs.lucida
 
 ### INSTALLATION via github
 ```shell
-git clone https://github.com/onenextech/Laravel-Lucid-Architecutre-Stater-Kit.git 
+git clone git@github.com:laranex/api-starter-kit.git
 cd Laravel-Lucid-Architecutre-Stater-Kit
 cp .env.example .env #Don't forget to configure your .env file
 composer install
