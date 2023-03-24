@@ -16,7 +16,7 @@ class SimpleHealthCheckController
         if ($request->has('fresh') || config('health.oh_dear_endpoint.always_send_fresh_results')) {
             Artisan::call(RunHealthChecksCommand::class);
         }
-        
+
         if (! ($resultStore->latestResults()?->allChecksOk())) {
             throw new ServiceUnavailableHttpException(message: 'Application not healthy');
         }

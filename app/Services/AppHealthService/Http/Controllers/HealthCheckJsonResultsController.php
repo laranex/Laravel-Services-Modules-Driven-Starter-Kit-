@@ -10,12 +10,13 @@ use Spatie\Health\ResultStores\ResultStore;
 
 class HealthCheckJsonResultsController
 {
-
     /**
      * App HealthCheck JSON
+     *
      * @unauthenticated
+     *
      * @group HealthCheck
-     * 
+     *
      * @bodyParam apiKey string required The API Key to get healthCheck status.
      * @bodyParam fresh boolean Fresh the HealthCheck before response.
      */
@@ -23,13 +24,13 @@ class HealthCheckJsonResultsController
     {
         $apiKey = $request->get('apiKey');
 
-        if( !$apiKey || $apiKey != config('health.api_key') ) {
+        if (! $apiKey || $apiKey != config('health.api_key')) {
             return response(['error' => 'Invalid API Key'], 403)
                     ->header('Content-Type', 'application/json')
                     ->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         }
 
-        if ( ($request->has('fresh') && $request->get('fresh')) || config('health.oh_dear_endpoint.always_send_fresh_results')) {
+        if (($request->has('fresh') && $request->get('fresh')) || config('health.oh_dear_endpoint.always_send_fresh_results')) {
             Artisan::call(RunHealthChecksCommand::class);
         }
 

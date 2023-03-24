@@ -3,7 +3,7 @@
 namespace App\Services\AppHealthService\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use \Spatie\Health\Facades\Health;
+use Spatie\Health\Facades\Health;
 
 class AppHealthServiceServiceProvider extends ServiceProvider
 {
@@ -41,35 +41,34 @@ class AppHealthServiceServiceProvider extends ServiceProvider
         $healthCheckArray = [];
 
         foreach ($healthChecks as $checkModule) {
-            if( config('health.checks.' . $checkModule) ) {
-                $module = '\\Spatie\\Health\\Checks\\Checks\\' . $checkModule;
+            if (config('health.checks.'.$checkModule)) {
+                $module = '\\Spatie\\Health\\Checks\\Checks\\'.$checkModule;
                 $healthCheckArray[] = $module::new();
             }
         }
 
         $redisMemoryUsageLimit = config('health.checks.RedisMemoryUsageCheck');
-        if( $redisMemoryUsageLimit > 0 ) {
+        if ($redisMemoryUsageLimit > 0) {
             $healthCheckArray[] = \Spatie\Health\Checks\Checks\RedisMemoryUsageCheck::new()->failWhenAboveMb($redisMemoryUsageLimit);
         }
 
         $pingCheckUrl = config('health.checks.PingCheck');
-        if( $pingCheckUrl != '' ) {
+        if ($pingCheckUrl != '') {
             $healthCheckArray[] = \Spatie\Health\Checks\Checks\PingCheck::new()->url($pingCheckUrl);
         }
 
-        if ( sizeof($healthCheckArray) ) {
+        if (count($healthCheckArray)) {
             Health::checks($healthCheckArray);
         }
     }
 
     /**
-    * Register the AppHealthService service provider.
-    *
-    * @return void
-    */
+     * Register the AppHealthService service provider.
+     *
+     * @return void
+     */
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
     }
-
 }

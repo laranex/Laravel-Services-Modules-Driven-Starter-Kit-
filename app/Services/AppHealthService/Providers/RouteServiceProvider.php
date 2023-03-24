@@ -9,8 +9,6 @@ class RouteServiceProvider extends ServiceProvider
 {
     /**
      * Read the routes from the "api.php" and "web.php" files of this Service
-     *
-     * @param \Illuminate\Routing\Router $router
      */
     public function map(Router $router)
     {

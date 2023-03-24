@@ -12,7 +12,7 @@ return [
         //     'model' => Spatie\Health\Models\HealthCheckResultHistoryItem::class,
         //     'keep_history_for_days' => 5,
         // ],
-        
+
         Spatie\Health\ResultStores\CacheHealthResultStore::class => [
             'store' => 'file',
         ],
@@ -23,7 +23,7 @@ return [
         // ],
 
         // Spatie\Health\ResultStores\InMemoryHealthResultStore::class,
-        
+
     ],
 
     /*
@@ -122,16 +122,16 @@ return [
     'api_key' => env('HEALTH_CHECK_API_KEY', 'onenex'),
 
     'checks' => [
-        'DatabaseCheck'         => env('HEALTH_CHECK_ENABLED_DB', true),
-        'CacheCheck'            => env('HEALTH_CHECK_ENABLED_CACHE', true),
-        'OptimizedAppCheck'     => env('HEALTH_CHECK_ENABLED_APP', true),
-        'DebugModeCheck'        => env('HEALTH_CHECK_ENABLED_DEBUG', true),
-        'EnvironmentCheck'      => env('HEALTH_CHECK_ENABLED_ENV', true),
-        'HorizonCheck'          => env('HEALTH_CHECK_ENABLED_HORIZON', true),
-        'QueueCheck'            => env('HEALTH_CHECK_ENABLED_QUEUE', false),
-        'ScheduleCheck'         => env('HEALTH_CHECK_ENABLED_SCHEDULE', false),
-        'RedisCheck'            => env('HEALTH_CHECK_ENABLED_REDIS', true),
+        'DatabaseCheck' => env('HEALTH_CHECK_ENABLED_DB', true),
+        'CacheCheck' => env('HEALTH_CHECK_ENABLED_CACHE', true),
+        'OptimizedAppCheck' => env('HEALTH_CHECK_ENABLED_APP', true),
+        'DebugModeCheck' => env('HEALTH_CHECK_ENABLED_DEBUG', true),
+        'EnvironmentCheck' => env('HEALTH_CHECK_ENABLED_ENV', true),
+        'HorizonCheck' => env('HEALTH_CHECK_ENABLED_HORIZON', true),
+        'QueueCheck' => env('HEALTH_CHECK_ENABLED_QUEUE', false),
+        'ScheduleCheck' => env('HEALTH_CHECK_ENABLED_SCHEDULE', false),
+        'RedisCheck' => env('HEALTH_CHECK_ENABLED_REDIS', true),
         'RedisMemoryUsageCheck' => env('HEALTH_CHECK_REDIS_MEMORY_MB', 0),
-        'PingCheck'             => env('HEALTH_CHECK_PING_URL', ''),
-    ]
+        'PingCheck' => env('HEALTH_CHECK_PING_URL', ''),
+    ],
 ];

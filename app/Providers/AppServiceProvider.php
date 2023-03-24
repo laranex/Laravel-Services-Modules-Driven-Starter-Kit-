@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function registerAppHealthServiceProvider()
     {
-        if(config('health.enabled')){
+        if (config('health.enabled')) {
             $this->app->register(AppHealthServiceServiceProvider::class);
         }
     }

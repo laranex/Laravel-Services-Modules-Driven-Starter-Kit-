@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-if(!config('health.enabled')){
+if (! config('health.enabled')) {
     Route::get('/', function () {
         return view('welcome');
     });
