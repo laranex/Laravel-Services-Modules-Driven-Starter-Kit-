@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Helpers\Enum;
 use App\Helpers\QueryBuilderHelper;
+use App\Services\AppHealthService\Providers\AppHealthServiceServiceProvider;
 use App\Services\ApplicationService\Providers\ApplicationServiceServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerLucidApplicationProviders();
+        $this->registerAppHealthServiceProvider();
         $this->configurePassport();
         $this->configureDevelopmentPackages();
 
@@ -44,6 +46,13 @@ class AppServiceProvider extends ServiceProvider
                 ->filter(fn ($provider) => $provider['active'])
                 ->map(fn ($provider) => $provider['provider'])
                 ->each(fn ($provider) => $this->app->register($provider));
+        }
+    }
+
+    private function registerAppHealthServiceProvider()
+    {
+        if (config('health.enabled')) {
+            $this->app->register(AppHealthServiceServiceProvider::class);
         }
     }
 
